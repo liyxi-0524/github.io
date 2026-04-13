@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LI Yongxi · Portfolio</title>
+    <meta
+      name="description"
+      content="LI Yongxi — Business-Oriented AI Engineer. Applied AI & Decision Intelligence."
+    />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --panel: rgba(255, 255, 255, 0.06);
+        --panel-2: rgba(255, 255, 255, 0.08);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --faint: rgba(255, 255, 255, 0.55);
+        --border: rgba(255, 255, 255, 0.14);
+        --brand: #78a6ff;
+        --brand-2: #7cf0c7;
+        --shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        --radius: 16px;
+        --max: 1100px;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+          monospace;
+        --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100%;
+        font-family: var(--sans);
+        color: var(--text);
+        background: radial-gradient(1200px 600px at 20% -10%, rgba(120, 166, 255, 0.25), transparent 55%),
+          radial-gradient(900px 500px at 85% 0%, rgba(124, 240, 199, 0.18), transparent 55%),
+          radial-gradient(900px 600px at 50% 110%, rgba(120, 166, 255, 0.12), transparent 65%), var(--bg);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(12px);
+        background: linear-gradient(to bottom, rgba(11, 16, 32, 0.88), rgba(11, 16, 32, 0.65));
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 12px 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 160px;
+      }
+
+      .mark {
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(120, 166, 255, 0.95), rgba(124, 240, 199, 0.75));
+        box-shadow: var(--shadow);
+      }
+
+      .brand-text {
+        line-height: 1.1;
+      }
+
+      .brand-text strong {
+        display: block;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+      }
+
+      .brand-text span {
+        display: block;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      .nav-links a {
+        padding: 8px 10px;
+        border-radius: 999px;
+        color: var(--muted);
+        border: 1px solid transparent;
+        font-size: 14px;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+        text-decoration: none;
+        border-color: rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .hero {
+        padding: 56px 0 22px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.35fr 0.65fr;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .panel {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.04));
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-main {
+        padding: 26px 22px;
+      }
+
+      .kicker {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .kicker code {
+        font-family: var(--mono);
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 12px;
+      }
+
+      h1 {
+        margin: 14px 0 10px;
+        font-size: 40px;
+        line-height: 1.1;
+        letter-spacing: -0.6px;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 64ch;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 16px 0 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .tag {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.86);
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 13px;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        border-color: rgba(120, 166, 255, 0.45);
+        background: linear-gradient(135deg, rgba(120, 166, 255, 0.28), rgba(124, 240, 199, 0.14));
+      }
+
+      .hero-side {
+        padding: 18px;
+      }
+
+      .side-title {
+        margin: 0;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.86);
+        letter-spacing: 0.2px;
+      }
+
+      .side-list {
+        margin: 12px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+
+      .side-item {
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .side-item strong {
+        display: block;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .side-item span {
+        display: block;
+        margin-top: 6px;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      section {
+        padding: 28px 0;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 0 0 14px;
+      }
+
+      .section-title h2 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: -0.2px;
+      }
+
+      .section-title p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .card h3 {
+        margin: 0;
+        font-size: 16px;
+      }
+
+      .card p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 14px;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 14px;
+      }
+
+      .list {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 14px;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .meta-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .meta-row b {
+        color: rgba(255, 255, 255, 0.88);
+        font-weight: 650;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .pill {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.86);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.04);
+        padding: 8px 12px;
+        border-radius: 999px;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .project-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+      }
+
+      .project-badges {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .badge {
+        font-family: var(--mono);
+        font-size: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: rgba(255, 255, 255, 0.84);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .project-list {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 14px;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .resume-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 18px;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .resume-box .left h3 {
+        margin: 0;
+        font-size: 16px;
+      }
+
+      .resume-box .left p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .contact-item b {
+        display: block;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .contact-item a,
+      .contact-item span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 14px;
+        overflow-wrap: anywhere;
+      }
+
+      footer {
+        padding: 26px 0 36px;
+        color: var(--faint);
+        font-size: 13px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      @media (max-width: 920px) {
+        h1 {
+          font-size: 34px;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .split {
+          grid-template-columns: 1fr;
+        }
+
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+
+        .skills {
+          grid-template-columns: 1fr;
+        }
+
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav" aria-label="主导航">
+      <div class="wrap">
+        <div class="nav-inner">
+          <a class="brand" href="#home" aria-label="返回首页">
+            <span class="mark" aria-hidden="true"></span>
+            <span class="brand-text">
+              <strong>LI Yongxi</strong>
+              <span>Business-Oriented AI Engineer</span>
+            </span>
+          </a>
+          <nav class="nav-links" aria-label="页面导航">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section id="home" class="hero" aria-label="首页">
+        <div class="hero-grid">
+          <div class="panel hero-main">
+            <span class="kicker"><code>Headline</code> Business-Oriented AI Engineer</span>
+            <h1>
+              Applied AI & <span style="color: var(--brand)">Decision Intelligence</span> for real-world business
+              impact
+            </h1>
+            <p class="subtitle">
+              Welcome to my personal job-seeking website. I focus on applying artificial intelligence to solve
+              real-world business and operational problems through data-driven solutions.
+            </p>
+
+            <ul class="tags" aria-label="关键词标签">
+              <li class="tag"># Applied AI</li>
+              <li class="tag"># Decision Intelligence</li>
+              <li class="tag"># Computer Vision</li>
+              <li class="tag"># Multimodal Learning</li>
+              <li class="tag"># Business Analytics</li>
+            </ul>
+
+            <div class="cta-row" aria-label="快速入口">
+              <a class="btn btn-primary" href="#projects">View Projects</a>
+              <a class="btn" href="cv.pdf" target="_blank" rel="noreferrer">Resume (PDF)</a>
+              <a class="btn" href="#contact">Contact</a>
+            </div>
+          </div>
+
+          <aside class="panel hero-side" aria-label="关键信息">
+            <p class="side-title">Quick Facts</p>
+            <ul class="side-list">
+              <li class="side-item">
+                <strong>Role Focus</strong>
+                <span>Business-Oriented AI Engineer · Applied AI & Decision Intelligence</span>
+              </li>
+              <li class="side-item">
+                <strong>Core Strength</strong>
+                <span>AI systems with measurable business value</span>
+              </li>
+              <li class="side-item">
+                <strong>Background</strong>
+                <span>AI & Business Analytics · Communication Engineering</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about" aria-label="关于我">
+        <div class="section-title">
+          <h2>2️⃣ About Me</h2>
+          <p>Who I am</p>
+        </div>
+
+        <div class="split">
+          <div class="card">
+            <h3>Self-introduction</h3>
+            <p>
+              I am a postgraduate student majoring in Artificial Intelligence and Business Analytics.<br />
+              With a background in communication engineering and strong AI expertise, I am passionate about building
+              applied AI systems with measurable business value.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Education</h3>
+            <div class="meta">
+              <div class="meta-row">
+                <b>MSc</b>
+                <span class="muted">Artificial Intelligence and Business Analytics, Lingnan University (Expected 2026)</span>
+              </div>
+              <div class="meta-row">
+                <b>BSc</b>
+                <span class="muted">Communication Engineering, Guangzhou Maritime University (2025)</span>
+              </div>
+              <div class="meta-row">
+                <b>Focus</b>
+                <span class="muted">Applied AI · Business Analytics · Decision Optimization</span>
+              </div>
+            </div>
+
+            <h3 style="margin-top: 16px">Strengths / Focus Areas</h3>
+            <ul class="list">
+              <li>Business problem framing & KPI-driven evaluation</li>
+              <li>Data-driven decision support</li>
+              <li>Applied AI system building (end-to-end)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" aria-label="技能">
+        <div class="section-title">
+          <h2>3️⃣ Skills</h2>
+          <p>Clear categories</p>
+        </div>
+
+        <div class="skills">
+          <div class="card">
+            <h3>Technical Skills（技术）</h3>
+            <div class="pill-list" aria-label="技术技能">
+              <span class="pill">Machine Learning</span>
+              <span class="pill">Deep Learning</span>
+              <span class="pill">Computer Vision</span>
+              <span class="pill">Multimodal Learning</span>
+              <span class="pill">Reinforcement Learning (decision optimization)</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Business Skills（业务）</h3>
+            <div class="pill-list" aria-label="业务技能">
+              <span class="pill">Business problem framing</span>
+              <span class="pill">KPI-driven model evaluation</span>
+              <span class="pill">Data-driven decision support</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Tools（工具）</h3>
+            <div class="pill-list" aria-label="工具">
+              <span class="pill">Python</span>
+              <span class="pill">SQL</span>
+              <span class="pill">C++</span>
+              <span class="pill">PyTorch</span>
+              <span class="pill">Transformers</span>
+              <span class="pill">OpenCV</span>
+              <span class="pill">MediaPipe</span>
+              <span class="pill">MATLAB</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" aria-label="项目">
+        <div class="section-title">
+          <h2>4️⃣ Projects</h2>
+          <p>Selected work</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="card" aria-label="项目 1">
+            <div class="project-head">
+              <h3>Intelligent Document Understanding System</h3>
+              <div class="project-badges" aria-label="技术栈">
+                <span class="badge">OCR</span>
+                <span class="badge">Vision Reasoning</span>
+                <span class="badge">Python</span>
+              </div>
+            </div>
+            <p class="muted">Fine-tuned OCR with visual causal reasoning to improve document automation quality.</p>
+            <ul class="project-list">
+              <li><b>Problem:</b> Complex business documents suffer from low processing efficiency.</li>
+              <li><b>Solution:</b> Fine-tuned OCR model with visual causal reasoning.</li>
+              <li><b>Impact:</b> Improved document automation accuracy and logical consistency.</li>
+              <li><b>My Role:</b> Dataset construction, model fine-tuning, evaluation.</li>
+              <li><b>Tools:</b> Python, PyTorch, Transformers, OpenCV.</li>
+              <li><b>Links:</b> Code/demo available upon request.</li>
+            </ul>
+            <div class="project-links" aria-label="项目链接">
+              <a class="btn" href="https://github.com/liyxi-0524" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="btn" href="#contact">Request Details</a>
+            </div>
+          </article>
+
+          <article class="card" aria-label="项目 2">
+            <div class="project-head">
+              <h3>AI-Based Driver Fatigue Detection System</h3>
+              <div class="project-badges" aria-label="技术栈">
+                <span class="badge">Computer Vision</span>
+                <span class="badge">Reinforcement Learning</span>
+                <span class="badge">Decision Loop</span>
+              </div>
+            </div>
+            <p class="muted">Closed-loop CV + RL system to reduce false alarms and improve real-world adaptability.</p>
+            <ul class="project-list">
+              <li><b>Problem:</b> High false alarm rates in fatigue detection systems.</li>
+              <li><b>Solution:</b> Computer vision + reinforcement learning closed-loop system.</li>
+              <li><b>Impact:</b> Achieved 97.5% accuracy with strong real-world adaptability.</li>
+              <li><b>My Role:</b> Feature engineering, model design, decision optimization.</li>
+              <li><b>Tools:</b> Python, OpenCV, MediaPipe, PyTorch.</li>
+              <li><b>Links:</b> Code/demo available upon request.</li>
+            </ul>
+            <div class="project-links" aria-label="项目链接">
+              <a class="btn" href="https://github.com/liyxi-0524" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="btn" href="#contact">Request Details</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="resume" aria-label="简历">
+        <div class="section-title">
+          <h2>5️⃣ Resume / CV</h2>
+          <p>PDF download</p>
+        </div>
+
+        <div class="resume-box" role="group" aria-label="简历下载">
+          <div class="left">
+            <h3>📄 resume.pdf</h3>
+            <p>Open or download my resume in PDF format.</p>
+          </div>
+          <div class="cta-row" style="margin: 0">
+            <a class="btn btn-primary" href="cv.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+            <a class="btn" href="cv.pdf" download>Download PDF</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" aria-label="联系方式">
+        <div class="section-title">
+          <h2>6️⃣ Contact</h2>
+          <p>Get in touch</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card contact-item">
+            <b>📧 Email</b>
+            <a href="mailto:liyxi524@gmail.com">liyxi524@gmail.com</a>
+          </div>
+          <div class="card contact-item">
+            <b>🔗 GitHub</b>
+            <a href="https://github.com/liyxi-0524" target="_blank" rel="noreferrer">https://github.com/liyxi-0524</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+          <span>© <span id="y"></span> LI Yongxi · GitHub Pages</span>
+          <span>最后更新：<span id="updated"></span></span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const y = document.getElementById("y");
+      if (y) y.textContent = String(new Date().getFullYear());
+
+      const updated = document.getElementById("updated");
+      if (updated) {
+        const d = new Date();
+        const pad = (n) => String(n).padStart(2, "0");
+        updated.textContent = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+      }
+    </script>
+  </body>
+</html>
