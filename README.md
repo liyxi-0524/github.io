@@ -61,6 +61,6 @@ I am passionate about building applied AI systems with measurable business value
 ---
 
 ## Contact
-📧 Email: yourname@email.com  
-🔗 GitHub: https://github.com/yourname  
-🔗 LinkedIn: https://linkedin.com/in/yourname
+📧 Email: liyxi524@gmail.com  
+🔗 GitHub: https://github.com/liyxi-0524 
+
